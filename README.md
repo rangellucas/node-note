@@ -1,6 +1,6 @@
 <snippet>
 <content>
-Node Note
+# Node Note
 
 Simple NodeJS application to write your daily notes.
 
@@ -8,5 +8,4 @@ Simple NodeJS application to write your daily notes.
 
 `$ npm install`
 </content>
-<tabTrigger>readme</tabTrigger>
 </snippet>
