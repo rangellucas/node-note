@@ -36,18 +36,20 @@ router.post('/insert', function(req, res, next) {
 		texto: req.body.texto,	
 	};
 
-	mongo.connect(url, function(error, db){
+	if(item.titulo){
+		mongo.connect(url, function(error, db){
 
-		assert.equal(null, error);		
-		db.collection('notes').insertOne(item, function(error, result){
+			assert.equal(null, error);		
+			db.collection('notes').insertOne(item, function(error, result){
 
-			assert.equal(null, error);
-			db.close();
-			res.redirect("/notes");
+				assert.equal(null, error);
+				db.close();
+				res.redirect("/notes");
+
+			});
 
 		});
-
-	});
+	}
 	
 });
 
