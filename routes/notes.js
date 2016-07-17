@@ -22,7 +22,12 @@ router.get('/', function(req, res, next) {
 		}, function(){		
 
 			db.close();
-			res.render("notes", {items: resultArray, titleForm: "Novo" , action: "notes/insert"});		
+			res.render("notes", {
+				title: 'Notes',
+				items: resultArray, 
+				titleForm: "Novo" , 
+				action: "notes/insert"
+			});		
 
 		});
 	});
@@ -114,7 +119,14 @@ router.get('/edit/:id',function(req, res, next){
 		noteSelected.forEach(function(docSelected, error2){
 
 			db.close();
-			res.render("notes",{item: docSelected, items: resultArray, titleForm: "Editar" , action: "notes/update", btnCancelar: true, btnExcluir: true});		
+			res.render("notes",{
+				title: 'Notes - ' + docSelected.titulo,
+				item: docSelected, 
+				items: resultArray, 
+				titleForm: "Editar" , 
+				action: "notes/update", 
+				btnCancelar: true, 
+				btnExcluir: true});		
 
 		});
 		

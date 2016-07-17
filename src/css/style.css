@@ -1,12 +1,15 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	background-color: #f7f7f7;
+	padding: 50px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FB;
+  color: #373a3c;
 }
 
-h1 {
-	font-size: 30px;
+a:hover{
+	text-decoration: none;
+	cursor: pointer;
+	color: #6d6d6d;
 }

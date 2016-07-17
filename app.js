@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var hbs = require('express-handlebars');
 
-var routes = require('./routes/index');
+var index = require('./routes/index');
 var notes = require('./routes/notes');
 
 var app = express();
@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+app.use('/', index);
 app.use('/notes', notes);
 app.use('/notes/edit/:id', notes);
 app.use('/notes/delete/:id', notes);
