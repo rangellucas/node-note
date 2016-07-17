@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
 			db.close();
 			res.render("notes", {
 				title: 'Notes',
-				titleForm: "Novo", 
+				titleForm: "New", 
 				items: resultArray, 				
 				action: "notes/insert"
 			});		
@@ -119,12 +119,12 @@ router.get('/edit/:id',function(req, res, next){
 			db.close();
 			res.render("notes",{
 				title: 'Notes - ' + docSelected.titulo,
-				titleForm: "Editar" ,
+				titleForm: "Edit" ,
 				action: "notes/update", 
 				item: docSelected, 
 				items: resultArray, 
-				btnCancelar: true, 
-				btnExcluir: true
+				btnCancel: true, 
+				btnDelete: true
 			});		
 
 		});
