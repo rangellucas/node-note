@@ -12,7 +12,7 @@ Simple NodeJS application to write your daily notes.
 * Grunt [visit page](http://gruntjs.com/)
 * Bootstrap v4.0.0-alpha.2 [visit page](http://getbootstrap.com)
 * jQuery v1.11.1 [visit page](https://blog.jquery.com/2014/05/01/jquery-1-11-1-and-2-1-1-released/)
-# Tether 1.3.0 [visit page](http://tether.io/)
+* Tether 1.3.0 [visit page](http://tether.io/)
 
 ## Installation
 
