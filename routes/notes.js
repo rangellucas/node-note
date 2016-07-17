@@ -35,8 +35,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/insert', function(req, res, next) {
-  	
-  	var item = {
+
+	var item = {
 		titulo: req.body.titulo,
 		texto: req.body.texto,	
 	};
@@ -124,7 +124,8 @@ router.get('/edit/:id',function(req, res, next){
 				item: docSelected, 
 				items: resultArray, 
 				btnCancelar: true, 
-				btnExcluir: true});		
+				btnExcluir: true
+			});		
 
 		});
 		
