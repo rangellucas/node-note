@@ -18,26 +18,26 @@ Simple NodeJS application to write your daily notes.
 
 #### 1. Clone this project
 
-'$ git clone https://github.com/rangellucas/node-note.git'
+`$ git clone https://github.com/rangellucas/node-note.git`
 
 #### 2. Make sure you have [npm](https://www.npmjs.com/) and [grunt-cli](https://www.npmjs.com/package/grunt-cli) installed globally
 
-'$ sudo apt-get install npm'
-'$ sudo npm install -g grunt-cli'
+`$ sudo apt-get install npm`
+`$ sudo npm install -g grunt-cli`
 
 #### 3. Installing packages
 
-'$ npm install'
+`$ npm install`
 
 ## Running the application
 
-'$ npm start'
+`$ npm start`
 
 > Make sure you have [MongoDB](https://docs.mongodb.com/manual/installation/) installed in your computer
 
 ## URL
 
-'http://localhost:3000'
+http://localhost:3000
 
 </content>
 </snippet>
