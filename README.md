@@ -22,8 +22,10 @@ Simple NodeJS application to write your daily notes.
 
 #### 2. Make sure you have [npm](https://www.npmjs.com/) and [grunt-cli](https://www.npmjs.com/package/grunt-cli) installed globally
 
-`$ sudo apt-get install npm`
-`$ sudo npm install -g grunt-cli`
+`
+$ sudo apt-get install npm
+$ sudo npm install -g grunt-cli
+`
 
 #### 3. Installing packages
 
