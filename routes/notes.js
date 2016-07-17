@@ -24,8 +24,8 @@ router.get('/', function(req, res, next) {
 			db.close();
 			res.render("notes", {
 				title: 'Notes',
-				items: resultArray, 
-				titleForm: "Novo" , 
+				titleForm: "Novo", 
+				items: resultArray, 				
 				action: "notes/insert"
 			});		
 
@@ -41,20 +41,18 @@ router.post('/insert', function(req, res, next) {
 		texto: req.body.texto,	
 	};
 
-	if(item.titulo){
-		mongo.connect(url, function(error, db){
+	mongo.connect(url, function(error, db){
 
-			assert.equal(null, error);		
-			db.collection('notes').insertOne(item, function(error, result){
+		assert.equal(null, error);		
+		db.collection('notes').insertOne(item, function(error, result){
 
-				assert.equal(null, error);
-				db.close();
-				res.redirect("/notes");
-
-			});
+			assert.equal(null, error);
+			db.close();
+			res.redirect("/notes");
 
 		});
-	}
+
+	});
 	
 });
 
@@ -121,10 +119,10 @@ router.get('/edit/:id',function(req, res, next){
 			db.close();
 			res.render("notes",{
 				title: 'Notes - ' + docSelected.titulo,
+				titleForm: "Editar" ,
+				action: "notes/update", 
 				item: docSelected, 
 				items: resultArray, 
-				titleForm: "Editar" , 
-				action: "notes/update", 
 				btnCancelar: true, 
 				btnExcluir: true});		
 

@@ -13,3 +13,7 @@ a:hover{
 	cursor: pointer;
 	color: #6d6d6d;
 }
+
+.margin-top-10{
+	margin-top: 10px !important;
+}
