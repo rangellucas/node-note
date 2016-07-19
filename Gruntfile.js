@@ -25,8 +25,7 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['<%= jshint.files %>', 'src/**/*.css','src/**/*.js'],
-      tasks: ['jshint','uglify']
+      files: ['<%= jshint.files %>', 'src/**/*.css','src/**/*.js', 'views/*.hbs'],      
     }
   });
 
@@ -36,7 +35,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
 
   grunt.registerTask('task-minify', ['uglify','cssmin']);
-  grunt.registerTask('task-watch', ['watch','jshint']);
+  grunt.registerTask('task-watch', ['watch']);
   grunt.registerTask('default', ['jshint']);
 
 };

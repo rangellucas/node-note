@@ -13,32 +13,31 @@ router.get('/', function(req, res, next){
 
 router.post('/register', function(req, res, next){
 	
-	//console.log(req.body);
 	var username = req.body.username;
 	var password = req.body.password;
 
 	var newUser = new User();
 	newUser.username = username;
 	newUser.password = password;
-	newUser.save(function(error, saveUser){
+	newUser.save(function(error, savedUser){
+
 		if(error){
-			console.log(error);
-			return res.status(500).send();
+
+			res.render("users", {title: 'NodeNote', regError: 'User already exists.'});
+
 		}else{
-			console.log('User registred');
-			return res.status(200).send();
+			
+			req.session.user = savedUser;
+			res.redirect("/notes");	
+
 		}
 
-		//res.end();
 	});
-
-	res.redirect("/notes");
 
 });
 
 router.post('/login', function(req, res, next){
 	
-	//console.log(req.body);
 	var username = req.body.username;
 	var password = req.body.password;
 
@@ -47,7 +46,7 @@ router.post('/login', function(req, res, next){
 		if(!person){
 
 			console.log(err);
-			res.render("index", {title: 'Express', logError: 'Invalid login'});
+			res.render("welcome", {title: 'NodeNote', logError: 'Invalid login.'});
 
 		}else{
 
@@ -62,14 +61,15 @@ router.post('/login', function(req, res, next){
 
 			});
 
-			
-
 		}
 
 	});
 
-	//res.redirect("/notes");
+});
 
+router.get('/logoff', function(req, res, next) {
+	req.session.destroy();
+	res.redirect('/');
 });
 
 module.exports = router;

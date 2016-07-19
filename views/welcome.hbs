@@ -1,15 +1,37 @@
 <div class="row">
 	<div class="container">
 		<div class="col-md-12">
-			<img class="img-circle center-block" src="./images/logo.png" width="200" />
+			<img class="img-circle center-block" src="./images/logo.png" width="100" />
 		</div>
 		<div class="col-md-12">&nbsp;</div>
 		<div class="col-md-12">
 			<h1 class="text-xs-center font-weight-bold">NodeNote</h1>
-			<div class="clearfix">&nbsp;</div>
-			<a target="_self" href="notes/" class="center-block btn btn-default">LOGIN</a>
-			<div class="clearfix">&nbsp;</div>
-			<a target="_self" href="users/" class="center-block btn btn-info">NEW USER</a>
+			<div class="container-login">
+	        	<div class="card card-block">
+		            <h4 class="card-title">Login</h4>
+		            <hr />
+		            <div class="card-text">
+		                <form action="users/login" method="post" target="_self">
+		                    {{# if logError }}
+		                        <div class="form-group">
+		                            <div class="alert alert-danger">{{ logError }}</div>
+		                        </div>    
+		                    {{/if}}
+		                    <div class="form-group">
+		                        <label>Name</label>
+		                        <input type="text" class="form-control" name="username" id="username" required="true" />                        
+		                    </div>
+		                    <div class="form-group">
+		                        <label>Password</label>
+		                        <input type="password" class="form-control" name="password" id="password" />
+		                    </div>
+		                    <button type="submit" class="btn btn-success">Send</button>
+		                </form>
+		            </div>
+		            <hr />
+		            <a target="_self" href="users/" class="center-block btn btn-default">NEW USER</a>
+	        	</div>			
+	        </div>	
 		</div>
 	</div>	
 </div>

@@ -8,7 +8,7 @@
                 </a>
             </div>
             <div class="col-md-6 text-xs-right margin-top-10">
-                <a href="/" target="_self" class="btn btn-warning btn-sm">LOGOFF</a>
+                <a href="users/logoff" target="_self" class="btn btn-warning btn-sm">LOGOFF</a>
             </div>    
         </div>
     </div>
@@ -16,19 +16,26 @@
 	<!-- /.col-sm-3 -->
     <div class="col-sm-3">
     	<ul class="list-group">
-    		{{# each items }}
-			<li class="list-group-item">	
-                <a target="_self" href="/notes/delete/{{this._id}}" class="destroy close">×</a>
-                <a target="_self" href="/notes/edit/{{this._id}}">
-					<div class="note-name">
-						<h2>{{ this.titulo }}</h2>
-					</div>
-					<div class="note-desc">
-						{{ this.texto }}
-					</div>
-				</a>
-			</li>
-			{{/each}}			
+            {{# if items }}
+                {{# each items }}
+                <li class="list-group-item">    
+                    <a target="_self" href="/notes/delete/{{this._id}}" class="destroy close">×</a>
+                    <a target="_self" href="/notes/edit/{{this._id}}">
+                        <div class="note-name">
+                            <h2>{{ this.titulo }}</h2>
+                        </div>
+                        <div class="note-desc">
+                            {{ this.texto }}
+                        </div>
+                    </a>
+                </li>
+                {{/each}}           
+            {{ else }}
+                <li class="list-group-item">    
+                    <div class="alert alert-info">Any note to show</div>
+                    Please, fill the fields beside then press <label class="label label-success">Send</label> to save your first note.
+                </li>                
+            {{/if}}
 		</ul>
     </div>
     <!-- /.col-sm-3 -->
@@ -40,19 +47,19 @@
         	<hr />
             <div class="card-text">
             	<form action="{{action}}" method="post" target="_self">
-                    <input type="hidden" value="{{item._id}}" name="idUpdate" id="idUpdate" />
+                    <input type="hidden" value="{{itemId}}" name="idUpdate" id="idUpdate" />
             		<div class="form-group">
                     	<label>Title</label>
-            			<input type="text" value="{{item.titulo}}" class="form-control" name="titulo" id="titulo" required="true" />                        
+            			<input type="text" value="{{itemTitulo}}" class="form-control" name="titulo" id="titulo" required="true" />                        
             		</div>
             		<div class="form-group">
 	            		<label>Text</label>
-	            		<textarea class="form-control" name="texto" id="texto">{{item.texto}}</textarea>
+	            		<textarea class="form-control" name="texto" id="texto">{{itemTexto}}</textarea>
             		</div>
             		<button type="submit" class="btn btn-success">Send</button>
                     
                     {{# if btnDelete }}
-                        <a href="/notes/delete/{{item._id}}" class="btn btn-danger" target="_self">Delete</a>                         
+                        <a href="/notes/delete/{{itemId}}" class="btn btn-danger" target="_self">Delete</a>                         
                     {{/if}}
 
                     {{# if btnCancel }}

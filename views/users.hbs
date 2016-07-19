@@ -2,7 +2,7 @@
 
     <div class="col-md-12">
         <div class="breadcrumb">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <a href="/" target="_self">
                     <img class="img-circle" src="./images/logo.png" width="50" />
                 </a>
@@ -13,35 +13,18 @@
         </div>
     </div>
     
-	<!-- /.col-sm-6 -->
-    <div class="col-md-6">
-        <div class="card card-block">
-            <h4 class="card-title">Login</h4>
-            <hr />
-            <div class="card-text">
-                <form action="users/login" method="post" target="_self">
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" class="form-control" name="username" id="username" required="true" />                        
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" class="form-control" name="password" id="password" />
-                    </div>
-                    <button type="submit" class="btn btn-success">Send</button>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- /.col-sm-6 -->   
-
-    <!-- /.col-sm-6 -->
-    <div class="col-md-6">
+    <!-- /.col-sm-12 -->
+    <div class="col-md-12">
         <div class="card card-block">
         	<h4 class="card-title">New User</h4>
         	<hr />
             <div class="card-text">
             	<form action="users/register" method="post" target="_self">
+                    {{# if regError }}
+                        <div class="form-group">
+                            <div class="alert alert-danger">{{ regError }}</div>
+                        </div>    
+                    {{/if}}
                     <div class="form-group">
                     	<label>Name</label>
             			<input type="text" class="form-control" name="username" id="username" required="true" />                        
@@ -55,5 +38,5 @@
             </div>
         </div>
     </div>
-    <!-- /.col-sm-6 -->    
+    <!-- /.col-sm-12 -->    
 </div>
