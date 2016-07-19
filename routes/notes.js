@@ -1,15 +1,17 @@
 var express = require('express');
 var router = express.Router();
-//var mongo = require('mongodb').MongoClient;
-//var objectId = require('mongodb').ObjectID;
-//var assert = require('assert');
-
-var url = "mongodb://localhost:27017/test";
+var Note = require('../lib/Note');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 
- 	var resultArray = [];
+	//var resultArray = [];
+
+	Note.find(function(err, data){
+		console.log(data);
+	}); 
+
+ 	/*var resultArray = [];
   	mongo.connect(url, function(error, db){
 	
 		assert.equal(null, error);	
@@ -30,7 +32,7 @@ router.get('/', function(req, res, next) {
 			});		
 
 		});
-	});
+	});*/
 
 });
 
@@ -41,17 +43,20 @@ router.post('/insert', function(req, res, next) {
 		texto: req.body.texto,	
 	};
 
-	mongo.connect(url, function(error, db){
+	var newNote = new Note();
+	newNote.titulo = item.titulo;
+	newNote.texto = item.texto;
+	newNote.user = req.session.user;
+	newNote.save(function(error, saveNote){
+		if(error){
+			console.log(error);
+			return res.status(500).send();
+		}else{
+			console.log('Note registred');
+			return res.status(200).send();
+		}
 
-		assert.equal(null, error);		
-		db.collection('notes').insertOne(item, function(error, result){
-
-			assert.equal(null, error);
-			db.close();
-			res.redirect("/notes");
-
-		});
-
+		//res.end();
 	});
 	
 });
