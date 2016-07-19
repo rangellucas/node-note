@@ -6,9 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var hbs = require('express-handlebars');
 var expressValidator = require('express-validator');
+var session = require('express-session');
 
 var index = require('./routes/index');
 var notes = require('./routes/notes');
+var users = require('./routes/users');
 
 var app = express();
 
@@ -24,12 +26,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
 app.use(cookieParser());
+app.use(session({secret:'efwnuf0w8u49w8u', resave: false, saveUninitialized: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/notes', notes);
 app.use('/notes/edit/:id', notes);
 app.use('/notes/delete/:id', notes);
+app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
